@@ -1,0 +1,38 @@
+div.dia {
+  padding: 10px 10px 20px 10px;
+}
+
+div.dia.right {
+  transform: rotate(6deg);
+}
+
+div.dia.left {
+  transform: rotate(-6deg);
+}
+
+div.dia > p.caption {
+  color: #2b8f00;
+  background-color: #bfffa4;
+  font-weight: bolder;
+  font-size: 105%;
+  border-radius: 0.25em;
+  padding: 0.1em;
+  margin-top: 0.15em;
+}
+
+div.about-panel {
+  background-color: white;
+  border-radius: 0.25em;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+div.jumbotron.about-welcome {
+  width: 40%;
+  margin: 3rem auto;
+  text-align: center;
+}
+
+div.row.last-row {
+  margin-bottom: 4rem;
+}

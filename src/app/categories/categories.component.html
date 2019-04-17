@@ -1,0 +1,21 @@
+    <!-- rubric19 -->
+    <!-- The user shall see a category menu that displays all of the available shopping categories -->
+    <ngb-accordion #acc="ngbAccordion" id="menuCategories">
+      <ngb-panel *ngFor="let categories of arCategories">
+        <ng-template ngbPanelTitle>
+          {{ categories.name }}
+        </ng-template>
+
+        <!-- rubric25 -->
+        <!-- Clicking on a category name in the category menu should toggle a dropdown of the available subcategories within that category -->
+        <ng-template ngbPanelContent>
+          <nav role="navigation">
+            <ul class="nav flex-column">
+              <li *ngFor="let subcategory of categories.subcategories" class="nav-item">
+                <span (click)="selectedSubcategory(subcategory)" class="nav-link subCategory">{{ subcategory }}</span>
+              </li>
+            </ul>
+          </nav>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>

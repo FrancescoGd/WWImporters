@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+  <!-- rubric04 -->
+  <!-- The user should see some text welcoming them to the website -->
+  <div class="col-3 welcome-message">
+    <p>Welcome to the <strong>Grocery Cloud Store!</strong></p>
+    <p>Please, choose among our vast catalogue of fine products and treat yourself to a better life.</p>
+    <h4>Have Fun!</h4>
+    <div class="form-check">
+        <!-- rubric06 -->
+        <!-- The user should see a toggle switch labeled “Toggle Slide Show” -->
+        <input type="checkbox" class="form-check-input" id="toggleCarousel" [checked]="bSlideshowEnabled" (change)="toggleSlideShow()">
+        <label for="toggleCarousel" class="form-check-label">Toggle Slide Show</label>
+    </div>
+  </div>
+</div>
+<!--
+  rubric02
+  The user should see a button that resembles a left arrow key to the left of the product carousel
+  rubric03
+  The user should see a button that resembles a right arrow key to the right of the product carousel
+
+  rubric07
+  Clicking on the right arrow should move the product carousel one slide forward.
+
+  rubric08
+  Clicking on the left arrow should move the product carousel one slide back
+
+  NOTE: the arrows are automatically put as default option by the Angular-Bootstrap carousel
+-->
+<div class="row justify-content-center home-slideshow-row">
+  <div class="col-3 home-slideshow-container">
+    <ngb-carousel *ngIf="slides" class="justify-content-center home-slideshow" #homeSlideShow>
+      <ng-template *ngFor="let slide of slides" ngbSlide>
+        <!-- rubric09 -->
+        <!-- If the user clicks on a product image, they should be taken to a product page that is populated with the details of the clicked product -->
+        <a routerLink="/product/{{ slide.name }}"><img class="img-fluid carousel-slide" alt="{{ slide.description }}" [src]="slide.image"></a>
+        <div class="carousel-caption">
+          <p><a routerLink="/product/{{ slide.name }}">{{ slide.name }}</a></p>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
+</div>
+<!-- rubric05 -->
+<!-- The user should see a button labeled “Shop All” -->
+<div class="row justify-content-center">
+  <div class="col-3">
+      <!-- rubric12 -->
+      <!-- If the user clicks on the �Shop All� button, the user should be taken to the shopping page -->
+      <a routerLink="/shopping" class="btn btn-primary btn-block">Shop All</a>
+  </div>
+</div>

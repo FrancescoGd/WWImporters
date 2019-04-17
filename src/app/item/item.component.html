@@ -1,0 +1,74 @@
+  <div *ngIf="item.name;else no_item" class="row">
+    <div class="col-3 offset-1 item-image">
+        <!-- rubric36 -->
+        <!-- The user should an image of the selected product -->
+        <img class="img-responsive" src="{{ item.imagelink }}" alt="{{ item.name }}" title="{{ item.description }}" />
+    </div>
+    <div class="col-3 offset-1 item-card">
+      <div class="card">
+        <!-- rubric35 -->
+        <!-- The user should see the name of the selected product -->
+        <h3 class="card-header">
+            {{ item.name }}
+        </h3>
+        <div class="card-body">
+          <!-- rubric40 -->
+          <!-- The user should see a description of the selected product -->
+          <p class="card-text">
+              {{ item.description }}
+          </p>
+          <table class="table table-condensed">
+            <tbody>
+              <!-- rubric37 -->
+              <!-- The user should see the rating of the selected product -->
+              <tr>
+                <th scope="row">Rating:</th>
+                <td>{{ item.rating }} / 5</td>
+              </tr>
+              <!-- rubric38 -->
+              <!-- The user should see the number of items in stock of the selected product -->
+              <tr>
+                <th scope="row">Stock:</th>
+                <td>{{ item.stock }} / 5</td>
+              </tr>
+              <!-- rubric39 -->
+              <!-- The user should see the price of the selected product -->
+              <tr>
+                <th scope="row">Price:</th>
+                <td>&#36;{{ item.price }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer">
+          <div class="row">
+              <div class="col">
+                <div class="form-row">
+                  <!-- rubric42 -->
+                  <!-- The user should see an input field labeled “Qty” -->
+                  <label for="itemQuantity" class="col">Qty</label>
+                  <input type="number" value="1" min="1" max="10" class="form-control form-control-sm col" [(ngModel)]="itemQuantity">
+                </div>
+              </div>
+              <div class="col-3">
+                <!-- rubric41 -->
+                <!-- The user should see a button labeled “Add” -->
+                <button type="button" class="btn btn-primary btn-sm" (click)="addItem()">Add to Cart</button>
+              </div>
+              <div class="col-3">
+                <!-- rubric43 -->
+                <!-- The user should see a button labeled “Back” -->
+                <button type="button" class="btn btn-default btn-sm" (click)="goBack()">Back</button>
+              </div>
+            </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <ng-template #no_item>
+    <div class="alert alert-danger" role="alert">
+      Sorry, we cannot find the selected item! &#9785;
+    </div>
+  </ng-template>

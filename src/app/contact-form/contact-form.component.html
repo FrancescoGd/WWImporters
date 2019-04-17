@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4">
+      <!-- rubric57 -->
+      <!-- The user should see a form with text input fields for name and email, a dropdown list for subject, and a text area for a message. These fields should have placeholders to show what they represent -->
+      <form class="contact-form rounded" #contactForm="ngForm" (ngSubmit)="sendMail()">
+        <label for="Name">Your Name</label>
+        <input name="Name" id="Name" type="text" class="form-control" placeholder="Surname + Name" required [(ngModel)]='Name' #name="ngModel">
+        <!-- rubric61 -->
+        <!-- The form should show validation errors if the form isn’t filled out correctly and the send button is pressed -->
+        <!-- NOTE: every field has a side message area triggered by the *.valid/pristine rules -->
+        <div class="alert alert-danger" [hidden]="name.valid || name.pristine">Your name is required</div>
+        <label for="Mail">Email</label>
+        <input name="Mail" id="Mail" type="email" class="form-control" placeholder="Where would you like to receive an answer?" required email [(ngModel)]="Mail" #mail="ngModel">
+        <div class="alert alert-danger" [hidden]="mail.valid || mail.pristine">Please enter a correct email address</div>
+        <label for="Subject">Subject</label>
+        <select name="Subject" id="Subject" class="form-control" [(ngModel)]="Subject" required placeholder="Why would you like to contact us?" #subject="ngModel">
+          <option>Shipment Tracking</option>
+          <option>Return Policy</option>
+          <option>Refund</option>
+          <option>Everything Else</option>
+        </select>
+        <div class="alert alert-danger" [hidden]="subject.valid || subject.pristine">Please choose a subject</div>
+        <label for="Message">Message</label>
+        <textarea name="Message" id="Message" class="form-control" placeholder="Your Message to Us" required [(ngModel)]="Message" #message="ngModel"></textarea>
+        <div class="alert alert-danger" [hidden]="message.valid || message.pristine">Please write something ;-)</div>
+        <div class="button-strip rounded">
+          <!-- rubric59 -->
+          <!-- The user should see a button labeled “Send” -->
+          <button type="submit" name="send" id="send" class="btn btn-primary" [disabled]="!contactForm.form.valid">Send!</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-2">
+      <div class="row">
+        <div class="col contact-card-title">
+          <h3>Contact Us!</h3>
+        </div>
+      </div>
+      <div class="row">
+        <!-- rubric58 -->
+        <!-- The user should see description that shows an email and phone number for the contacting the business -->
+        <div class="contact-card">
+          <p><em>Please, feel free to send us an enquiry!</em><br />
+            Use the contact form on the left or give us a call.<br />
+            We'll do our best to get back to you as soon as possible.</p>
+            <h4>Contact Details</h4>
+            <strong>Mail: </strong><a href="mailto:info@grocerycloud.com">info@grocerycloud.com</a><br />
+            <strong>Phone: </strong>+33 567 43210
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

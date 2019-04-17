@@ -1,0 +1,30 @@
+<header>
+  <!-- rubric68 -->
+  <!-- The header bar should always be at the top of the page -->
+  <nav class="navbar navbar-expand-sm navbar-light sticky-top">
+    <!-- rubric65 -->
+    <!-- User shall see a link to the home page -->
+    <!-- rubric69 -->
+    <!-- Clicking the home page link should take the user to the home page -->
+    <a class="navbar-brand" routerLink="/home">{{ title }}</a>
+    <ul class="navbar-nav ml-auto">
+      <!-- rubric66 -->
+      <!-- User shall see a link to the shopping page -->
+      <li class="nav-item">
+          <!-- rubric70 -->
+          <!-- Clicking the shopping page link should take the user to the shopping page -->
+          <a class="nav-link" routerLink="/shopping">Shop All</a>
+      </li>
+      <!-- rubric67 -->
+      <!-- User shall see a link to the cart page -->
+      <li class="nav-item">
+          <!-- rubric71 -->
+          <!-- Clicking the cart page link should take the user to the cart page -->
+          <a class="nav-link" routerLink="/cart">
+            <i class="fas fa-shopping-cart"></i>
+            ({{ appStatus.shoppingCart.shoppingCartItems.length }})
+          </a>
+      </li>
+    </ul>
+  </nav>
+</header>

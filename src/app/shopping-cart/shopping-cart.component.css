@@ -1,0 +1,28 @@
+.shipping-form-title {
+  background-color: white;
+  border-radius: 0.25rem;
+  opacity: 0.8;
+}
+.shipping-form {
+  padding: 0.5rem;
+  background-color: #bfffa4;;
+  border-radius: 0.25rem;
+  opacity: 0.8;
+}
+
+.shipping-form .row {
+  margin-top: 0.2rem;
+}
+
+.shopping-cart {
+  background-color: #ffc6a4;
+  border-radius: 0.25rem;
+}
+
+.jumbotron-fluid {
+  background-color: #bfffa4;;
+  border-radius: 0.25rem;
+  opacity: 0.8;
+  text-align: center;
+  height: 4rem;
+}

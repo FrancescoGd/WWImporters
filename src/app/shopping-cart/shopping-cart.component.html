@@ -1,0 +1,117 @@
+<div *ngIf="appStatus.shoppingCart.shoppingCartItems.length;else cart_empty" class="container-fluid">
+  <div class="row">
+    <div class="col-8 shopping-cart">
+      <!-- rubric47 -->
+      <!-- The user should see a table displaying the product image, name, unit price, quantity as an input field, total cost, and a remove button for each product in the shopping cart. -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let currentItem of appStatus.shoppingCart.shoppingCartItems">
+            <td><img class="img-responsive img-thumbnail" src="{{ currentItem.Image }}" width="64" /></td>
+            <td>{{ currentItem.Name }}</td>
+            <td>{{ currentItem.Price }}$</td>
+            <td><input type="number" name="nItemQuantity" id="nItemQuantity" min="1" title="Change product quantity" class="form-control form-control-sm" [(ngModel)]="currentItem.Quantity"></td>
+            <td>{{ appStatus.shoppingCart.calculateLineTotal(currentItem.Quantity, currentItem.Price) }}$</td>
+            <td><button type="button" title="Remove product from cart" class="btn btn-outline-secondary btn-sm" (click)="appStatus.shoppingCart.removeShoppingCartItem(currentItem.Name)"><i class="far fa-trash-alt"></i></button></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="4">Subtotal</th>
+            <td>{{ appStatus.shoppingCart.calculateShoppingCartSubtotal() }}$</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div class="col-4">
+      <!-- rubric48 -->
+      <!-- The user should see a form labeled “Enter Shipping Details” that has text input fields for the users name, address, city, and phone number. These input fields should have placeholders that show what they represent. -->
+      <h3 class="shipping-form-title">Enter Shipping Details</h3>
+      <form class="shipping-form" #shippingForm="ngForm" (ngSubmit)="shippingSummary()">
+        <div class="row">
+          <div class="col-6">
+            <input name="Name" id="Name" type="text" placeholder="Name" required class="form-control form-control-sm" [(ngModel)]="appStatus.shoppingCart.customerName" #name="ngModel">
+          </div>
+          <div class="col">
+            <!-- rubric52 -->
+            <!-- The form should show validation errors if the form isn’t filled out correctly and the checkout button is pressed -->
+            <!-- NOTE: every field has a side message area triggered by the *.valid/pristine rules -->
+            <div class="alert alert-danger" [hidden]="name.valid || name.pristine">You must fill your Name</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <input name="Address" id="Address" type="text" placeholder="Address" required class="form-control form-control-sm" [(ngModel)]="appStatus.shoppingCart.customerAddress" #address="ngModel">
+          </div>
+          <div class="col">
+            <div class="alert alert-danger" [hidden]="address.valid || address.pristine">An address is required to ship!</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <input name="City" id="City" type="text" placeholder="City" required class="form-control form-control-sm" [(ngModel)]="appStatus.shoppingCart.customerCity" #city="ngModel">
+          </div>
+          <div class="col">
+            <div class="alert alert-danger" [hidden]="city.valid || city.pristine">City is required</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <input name="Phone" id="Phone" type="tel" placeholder="Phone Number" required class="form-control form-control-sm" [(ngModel)]="appStatus.shoppingCart.customerPhone" #phone="ngModel">
+          </div>
+          <div class="col">
+            <div class="alert alert-danger" [hidden]="phone.valid || phone.pristine">Please provide your phone number</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <!-- rubric49 -->
+            <!-- The user should see a section showing the subtotal cost of all the items in the shopping cart, the shipping cost, the tax cost, and a total cost of all of the items in the shipping cost. -->
+            <table class="table table-borderless table-sm">
+              <tbody>
+                <tr>
+                  <th scope="row">Subtotal</th>
+                  <td align="right">{{ appStatus.shoppingCart.calculateShoppingCartSubtotal() }}$</td>
+                </tr>
+                <tr>
+                  <th scope="row">Shipping</th>
+                  <td align="right">FREE!</td>
+                </tr>
+                <tr>
+                  <th scope="row">Tax (10%)</th>
+                  <td align="right">{{ appStatus.shoppingCart.calculateTaxAmount() }}$</td>
+                </tr>
+                <tr>
+                  <th scope="row">Total</th>
+                  <td align="right"><strong>{{ appStatus.shoppingCart.calculateShoppingCartTotal() }}$</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <!-- rubric50 -->
+            <!-- The user should see a checkout button -->
+            <button type="submit" name="checkout-btn" id="checkout-btn" class="btn btn-primary" [disabled]="!shippingForm.form.valid">Checkout</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<ng-template #cart_empty>
+  <div class="jumbotron-fluid">
+    <h1>Your Cart is Empty! &#9785;</h1>
+  </div>
+</ng-template>

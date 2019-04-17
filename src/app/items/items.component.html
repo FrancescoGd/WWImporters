@@ -1,0 +1,77 @@
+<div *ngIf="selectedSubcategory" class="container-fluid">
+  <!-- rubric14 -->
+  <!-- The user shall see a controls bar -->
+  <div class="row">
+      <div class="col-7 items-list-header">
+        <!-- rubric15 -->
+        <!-- The user shall see a section in the controls bar that displays the selected category name -->
+        <h3>You are in the <strong>{{ selectedSubcategory }}</strong> department.</h3>
+        <!-- rubric16 -->
+        <!-- The user shall see a section in the controls bar that displays the number of items shown out of the total number of items in the selected category -->
+        <!-- rubric28 -->
+        <!-- The section of the controls bar that displays the number of items shown out of the total number of items in the selected category should update whenever a new subcategory is selected or whenever the “In Stock Only” switch is toggled. -->
+        <h4>Viewing <strong>{{ filteredItems.length }}</strong> out of <strong>{{ items.length }}</strong> products.</h4>
+      </div>
+      <div class="col-4 offset-1 items-list-header">
+        <!-- rubric18 -->
+        <!-- The user shall see a dropdown list labeled “Sort By” that has the following options: (None, Price, Alphabetical, Rating) in the controls bar -->
+        <div class="row">
+          <div class="col-4">
+              <label for="itemsOrderBy">Sort by</label>
+          </div>
+          <div class="col-8">
+            <select id="itemsOrderBy" class="form-control form-control-sm" (change)="sortItemsBy($event.target.value)">
+              <option value="">None</option>
+              <option value="price">Price</option>
+              <option value="name">Alphabetical</option>
+              <option value="rating">Rating</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <!-- rubric17 -->
+            <!-- The user shall see a toggle switch labeled “In Stock Only” in the controls bar -->
+            <div class="form-check">
+              <input type="checkbox" id="itemsInStock" class="form-check-input" (change)="toggleInStock()">
+              <label for="itemsInStock" class="form-check-label">In stock only</label>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="row">
+    <!-- rubric20 -->
+    <!-- The user shall see a grid that is populated with the products of the selected category -->
+    <div *ngFor="let item of filteredItems" class="col-sm-2 m-1">
+      <div class="card">
+        <div class="card-header text-center">
+          <!-- rubric31 -->
+          <!-- If the user clicks on a product image within a grid cell, they should be taken to a product page that is populated with the details of the clicked product -->
+          <a routerLink="/product/{{ item.name }}">
+            <!-- rubric23 -->
+            <!-- Each grid cell shall have an image of the product displayed -->
+            <img class="img-fluid items-page-thumbnail" src="{{ item.imagelink }}" alt="{{ item.name }}" title="{{ item.description }}" />
+          </a>
+        </div>
+        <div class="card-body">
+          <!-- rubric32 -->
+          <!-- If the user clicks on a product name within a grid cell, they should be taken to a product page that is populated with the details of the clicked product -->
+          <a routerLink="/product/{{ item.name }}">
+            <!-- rubric21 -->
+            <!-- Each grid cell shall have the name of the product displayed -->
+            <h5 class="card-title">{{ item.name }}</h5>
+          </a>
+          <!-- rubric22 -->
+          <!-- Each grid cell shall have the price of the product displayed -->
+          <p class="card-text">Price: {{ item.price }}$</p>
+        </div>
+        <div class="card-footer text-center">
+          <!-- rubric24 -->
+          <!-- Each grid cell shall have a button labeled “Add” -->
+          <button class="btn btn-success" title="Add one to the cart" (click)="addSingleItem(item.name, item.imagelink, item.price)">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

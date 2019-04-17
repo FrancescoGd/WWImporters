@@ -1,0 +1,25 @@
+::ng-deep .card {
+  border-color:#a73e00;
+}
+
+::ng-deep .card-header {
+  background-color: #ffa570;
+}
+
+::ng-deep .card-header button {
+  color: #003e8e;
+  font-weight: 500;
+}
+
+::ng-deep .card-header button:hover {
+  color: #00306e;
+  text-decoration: underline;
+}
+
+::ng-deep .card-body {
+  background-color: #ffc6a4;
+}
+
+.subCategory {
+  cursor: pointer;
+}

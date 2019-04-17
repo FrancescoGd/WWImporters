@@ -1,0 +1,31 @@
+label {
+  font-weight: bolder;
+  margin-top: 0.5rem;
+}
+
+.contact-form {
+  background-color: #ffa570;
+  border: 1px solid #a73e00;
+  padding: 0.5rem;
+  opacity: 0.8;
+}
+
+.button-strip {
+  margin-top: 1rem;
+  text-align: end;
+  background-color: #a73e00;
+  padding: 0.2rem;
+}
+
+.contact-card-title {
+  background-color: white;
+  border-radius: 0.25rem;
+  opacity: 0.8;
+}
+
+.contact-card {
+  padding: 0.5rem;
+  background-color: #bfffa4;;
+  border-radius: 0.25rem;
+  opacity: 0.8;
+}

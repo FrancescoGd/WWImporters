@@ -1,0 +1,30 @@
+.item-image {
+  background-color: white;
+  border-radius: 0.25rem;
+  opacity: 0.8;
+}
+
+.item-image > img {
+  max-width: 90%;
+}
+
+.item-card {
+  padding: 0.5rem;
+  opacity: 0.8;
+}
+
+.card {
+  border-color: #2b8f00;
+}
+
+.card-header {
+  background-color: white;
+}
+
+.card-body {
+  background-color: #bfffa4;
+}
+
+.card-footer {
+  background-color: #9bff70;
+}

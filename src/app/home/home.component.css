@@ -1,0 +1,53 @@
+.home-slideshow-row {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  background: rgb(191, 255, 164);
+  background: linear-gradient(90deg, rgba(191, 255, 164, 1) 0%, rgba(255, 95, 0, 1) 50%, rgba(191, 255, 164, 1) 100%);
+}
+
+.home-slideshow-container {
+  background-color: #ff5f00;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.home-slideshow {
+  text-align: center;
+}
+
+.carousel-slide {
+  object-fit: cover;
+  max-height: 25rem;
+  margin: 0.5rem;
+  transition: opacity 1.2s ease-in-out, visibility 1.2s;
+}
+
+.carousel-caption > p > a {
+  color: #00306e;
+  font-weight: bold;
+}
+
+.welcome-message {
+  background-color: white;
+  opacity: 0.8;
+  border-radius: 0.25rem;
+}
+
+/*
+ rubric11
+ Whenever the product carousel changes it slide, it should do in an animated way
+*/
+::ng-deep .carousel-item {
+  display: block !important;
+  position: absolute;
+  transform:  scale(0) translateY(-100%);
+  opacity: 0;
+  transition: all 1s eas;
+}
+
+::ng-deep .carousel-item.active {
+  position: relative;
+  transform:  scale(1) translateY(0);
+  opacity: 1;
+  top: 0;
+}

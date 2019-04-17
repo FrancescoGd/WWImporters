@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-3">
+    <!-- BEGIN: left menu -->
+    <app-categories
+      (SelectCategory)="selectCategory($event)"
+      (SelectSubcategory)="selectSubcategory($event)"
+    >
+    </app-categories>
+    <!-- END: left menu -->
+  </div>
+
+  <div class="col">
+    <div *ngIf="appStatus.currentCategory">
+      <app-category
+        [selectedCategory]="appStatus.currentCategory"
+        (SelectSubcategory)="selectSubcategory($event)"
+      >
+      </app-category >
+    </div>
+
+    <div *ngIf="appStatus.currentSubcategory">
+      <app-items
+        [selectedSubcategory]="appStatus.currentSubcategory"
+      >
+      </app-items>
+    </div>
+
+  </div>
+</div>
