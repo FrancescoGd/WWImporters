@@ -17,7 +17,6 @@ import { ShoppingPageComponent } from './shopping-page/shopping-page.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { AboutPageComponent } from './about-page/about-page.component';
-import { InStockItemsPipe } from './in-stock-items.pipe';
 
 
 
@@ -33,8 +32,7 @@ import { InStockItemsPipe } from './in-stock-items.pipe';
     ShoppingPageComponent,
     ShoppingCartComponent,
     ContactFormComponent,
-    AboutPageComponent,
-    InStockItemsPipe
+    AboutPageComponent
   ],
   imports: [
     NgbModule,
