@@ -1,4 +1,14 @@
-# WWImp.
+# BIG FAT NOTE\! :bomb:
+
+**This project is far from being even remotely production ready!**
+
+I developed it while studying _Angular_ and it was the first almost-complete-app i wrote with it. It's full of incoherences (sometimes purposedly because I wanted to test different techniques to do the same thing - f.ex. sometimes I ```map+filter``` other times I loop with ```for```, sometimes I used both and so on). Additionally it's not \*-tested, has some unfinished or empty/mocked functions and has some bugs.
+
+So, to summarize: have a look at it if you feel like but **absolutely don't use it in a real-world scenario**. If you do it, it's **at your own risk**.
+
+
+# World Wide Importers 
+### A (very) small and uncomplete web shop
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
