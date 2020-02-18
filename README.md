@@ -1,6 +1,8 @@
 # BIG FAT NOTE\! :bomb:
 
-**This project is far from being even remotely production ready!**
+ℹ️ _I've now archived this repository, anyhow it's readable and forkable so the following warnings still apply!_
+
+⚠️ **This project is far from being even remotely production ready!**
 
 I developed it while studying _Angular_ and it was the first almost-complete-app i wrote with it. It's full of inconsistencies (sometimes purposely because I wanted to test different techniques to do the same thing - f.ex. sometimes I ```map+filter``` other times I loop with ```for```, sometimes I used both and so on). Additionally it's not \*-tested, has some unfinished or empty/mocked functions and has some bugs.
 
